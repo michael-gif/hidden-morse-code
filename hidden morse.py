@@ -2,6 +2,9 @@ from PIL import Image
 im = Image.open("morse.png")
 pix = im.load()
 ps = []
+
+#takes the pixel colors and converts them to a list of morse code
+
 for y in range(im.size[1]):
     for x in range(im.size[0]):
         if pix[x,y] == (0,0,0):
@@ -35,6 +38,9 @@ for p in range(len(ps)):
             morse.append('-')
         count = 0
 
+# morse code translator below:
+
+#morse code is separated into letters
 morse = ''.join(morse)
 letter = []
 spaces = 0
@@ -93,6 +99,7 @@ for d in range(len(morse)):
         letter.append(' ')
         spaces += 1
 
+#letters are translated into english
 for c in morseword:
     for b in range(27):
         if c == morsecode[b]:
