@@ -1,6 +1,6 @@
 from PIL import Image
 
-im = Image.open("morse.png")
+im = Image.open(input("type image's file name"))
 pix = im.load()
 ps = []
 
