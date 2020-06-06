@@ -5,5 +5,5 @@ The black pixels are what make up the letters. Each black pixel is a "dit". Thre
 
 The "morse.png" is exactly the same, except all the white is RGB (1,1,1), and all the black pixels are RGB (0,0,0)
 
-Use "more writer.py" to create an image with hidden morse in it.
+Use "morse writer.py" to create an image with hidden morse in it.  
 Use "morse reader.py" to read the hidden morse.
