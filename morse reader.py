@@ -1,6 +1,6 @@
 from PIL import Image
 
-im = Image.open(input("type image's file name"))
+im = Image.open(input("Type the filename of the image to read.  Example: disguised_morse.png"))
 pix = im.load()
 ps = []
 
