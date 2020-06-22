@@ -55,4 +55,4 @@ go = input("Proceed? 'y' or 'n'")
 if go == 'y':
     im = Image.new('RGB',(width,height),color=(1,1,1))
     im.putdata(pixels)
-    im.save('bruh.png')
+    im.save('disguised_morse.png')
