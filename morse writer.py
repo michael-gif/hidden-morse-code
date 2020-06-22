@@ -3,8 +3,8 @@ from PIL import Image
 words = input("enter words to encode")
 alphabet = "abcdefghijklmnopqrstuvwxyz .,?:/-='_!;"
 
-ditdah = (0,0,0)
-space = (255,255,255)
+ditdah = (100,100,100)
+space = (0,0,255)
 
 morsecode = [
     ". ...",
@@ -72,9 +72,9 @@ if go == 'y':
     if imagetype == 'new':
         im = Image.new('RGB',(width,height),color=space)
         im.putdata(pixels)
-        im.save(input("Filename of new image:") + '.png')
+        im.save(input("Filename of new image (include extension):"))
     elif imagetype == 'existing':
-        filename = input("Filename of existing image:")
+        filename = input("Filename of existing image (include extension):")
         im = Image.open(filename)
         pix = im.load()
         z = 0
