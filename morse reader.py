@@ -4,14 +4,17 @@ im = Image.open(input("Type the filename of the image to read.  Example: disguis
 pix = im.load()
 ps = []
 
+ditdah = (0,0,0)
+space = (255,255,255)
+
 # takes the pixel colors and converts them to a list of morse code
 width = int(input("Width of message:"))
 height = int(input("Height of message:"))
 for y in range(height):
     for x in range(width):
-        if pix[x, y] == (0, 0, 0):
+        if pix[x, y] == ditdah:
             ps.append(".")
-        elif pix[x, y] == (255, 255, 255):
+        elif pix[x, y] == space:
             ps.append(" ")
 run = True
 z = len(ps) - 1
@@ -134,4 +137,7 @@ for c in morseword:
         if c == morsecode[b]:
             word.append(alphabet[b])
 
-print("".join(word))
+if word == []:
+    print("Error: translation failed")
+else:
+    print("".join(word))
