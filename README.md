@@ -1,4 +1,4 @@
-# hidden-morse-code
+# Hidden Morse Code
 I have hidden morse code in an image  
 
 Look at the "easier to see morse.png":  
