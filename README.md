@@ -2,7 +2,7 @@
 I have hidden morse code in an image  
 
 Look at the "easier to see morse.png":  
-![alt text](https://github.com/michael-gif/hidden-morse-code/blob/master/easier%20to%20see%20morse%20-%20Copy.png "e")
+![alt text](https://github.com/michael-gif/hidden-morse-code/blob/master/easier%20to%20see%20morse.png "Easier to see morse")
 
 Each black pixel makes up either a dit or a dah.  
 One black pixel is a dit, three is a dah.  
