@@ -3,8 +3,8 @@ from PIL import Image
 words = input("enter words to encode")
 alphabet = "abcdefghijklmnopqrstuvwxyz .,?:/-='_!;"
 
-ditdah = (100,100,100)
-space = (0,0,255)
+ditdah = (0,0,0)
+space = (255,255,255)
 
 morsecode = [
     ". ...",
