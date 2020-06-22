@@ -5,12 +5,13 @@ pix = im.load()
 ps = []
 
 # takes the pixel colors and converts them to a list of morse code
-
-for y in range(im.size[1]):
-    for x in range(im.size[0]):
+width = int(input("Width of message:"))
+height = int(input("Height of message:"))
+for y in range(height):
+    for x in range(width):
         if pix[x, y] == (0, 0, 0):
             ps.append(".")
-        elif pix[x, y] == (1, 1, 1):
+        elif pix[x, y] == (255, 255, 255):
             ps.append(" ")
 run = True
 z = len(ps) - 1
@@ -46,7 +47,7 @@ morse = "".join(morse)
 letter = []
 spaces = 0
 morseword = []
-alphabet = "abcdefghijklmnopqrstuvwxyz "
+alphabet = "abcdefghijklmnopqrstuvwxyz .,?:/-='_!;"
 morsecode = [
     ". -",
     "- . . .",
@@ -75,6 +76,17 @@ morsecode = [
     "- . - -",
     "- - . .",
     " ",
+    ". - . - . -",
+    "- - . . - -",
+    ". . - - . .",
+    "- - - . . .",
+    "- . . - .",
+    "- . . . . -",
+    "- . . . -",
+    ". - - - - .",
+    ". . - - . -",
+    "- . - . - -",
+    "- . - . - ."
 ]
 word = []
 for d in range(len(morse)):
@@ -118,7 +130,7 @@ for d in range(len(morse)):
 
 # letters are translated into english
 for c in morseword:
-    for b in range(27):
+    for b in range(38):
         if c == morsecode[b]:
             word.append(alphabet[b])
 
