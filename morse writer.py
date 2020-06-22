@@ -2,6 +2,10 @@ from PIL import Image
 
 words = input("enter words to encode")
 alphabet = "abcdefghijklmnopqrstuvwxyz .,?:/-='_!;"
+
+ditdah = (100,100,100)
+space = (0,0,255)
+
 morsecode = [
     ". ...",
     "... . . .",
@@ -53,9 +57,9 @@ morse = '   '.join(morse)
 pixels = []
 for x in range(len(morse)):
     if morse[x] == '.':
-        pixels.append((0,0,0))
+        pixels.append(ditdah)
     else:
-        pixels.append((255,255,255))
+        pixels.append(space)
 
 print('Pixel number:' , len(pixels))
 width = int(input("width?"))
@@ -66,7 +70,7 @@ go = input("Proceed? 'y' or 'n'")
 if go == 'y':
     imagetype = input("Create new image or modify existing image? 'new' or 'existing'")
     if imagetype == 'new':
-        im = Image.new('RGB',(width,height),color=(255,255,255))
+        im = Image.new('RGB',(width,height),color=space)
         im.putdata(pixels)
         im.save(input("Filename of new image:") + '.png')
     elif imagetype == 'existing':
