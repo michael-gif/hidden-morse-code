@@ -96,14 +96,8 @@ def convert(im):
     # generate a new dict of morse code, with the dashes replaced with three dots each
     morsecode = {}
     for key, value in morse_code.items():
-        temp = []
-        for char in value:
-            if char == '-':
-                temp.append('...')
-            else:
-                temp.append('.')
+        temp = ['...' if char == '-' else '.' for char in value]
         morsecode[key] = ' '.join(temp)
-        temp = []
 
     # the morse code dict but reversed
     morsecode_reversed = {value:key for key,value in morsecode.items()}
