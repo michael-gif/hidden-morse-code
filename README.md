@@ -29,7 +29,7 @@ In the image `disguised morse.png`:
 
 More info:
 - The color of the pixels don't have to be `(0,0,0)` or `(1,1,1)`. They just need to be consistent.
-- For example, you could have all of the dits and dahs be of color `(255,0,0)`, while the space inbetween be of color `(255,0,1)`, making the morse code look like a solid red block.
+- For example, you could have all of the dits and dahs be the color `(255,0,0)`, while the space inbetween be the color `(255,0,1)`, making the morse code look like a solid red block.
 
 ## Usage
 Use `morse writer.py` to create an image with hidden morse in it.  
