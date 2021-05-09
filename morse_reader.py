@@ -76,6 +76,10 @@ def convert(im):
     sentence = []
     for word in morse_words:
         letters = word.split('   ')
+        for letter in letters:
+            if letter.strip() != '':
+                #print(letter, morsecode_reversed.get(letter))
+                pass
         new_word = ''.join(morsecode_reversed.get(letter) for letter in letters if letter.strip() != '')
         sentence.append(new_word)
 
