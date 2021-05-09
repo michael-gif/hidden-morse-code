@@ -1,6 +1,6 @@
 from PIL import Image
 
-im = Image.open(input('filename (including extension): >>'))
+im = Image.open(input('Filename (including extension): >>'))
 
 pix = im.load()
 
@@ -59,8 +59,11 @@ morse_code = {
 }
 
 def convert(im):
+    # color to search for
+    temp = input('Enter the RGB to search for in the format 0-255,0-255,0-255 : ')
+    color = (int(temp.split(',')[0]), int(temp.split(',')[1]), int(temp.split(',')[2]))
     # take all the pixels and put them into a list
-    morse = ''.join(['.' if pix[x, y] == (0, 0, 0) else ' ' for y in range(im.size[1]) for x in range(im.size[0])])
+    morse = ''.join(['.' if pix[x, y] == color else ' ' for y in range(im.size[1]) for x in range(im.size[0])])
     # split the morse up into words, removing any whitespace in the process
     morse_words = [word for word in morse.split('       ') if word.strip() != '' ]
 

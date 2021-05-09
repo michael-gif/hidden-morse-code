@@ -56,7 +56,7 @@ morse_code = {
 }
 
 # input to encode into morse
-words = input("enter words to encode")
+words = input("Enter words to encode: ")
 
 # colors of the pixels
 ditdah = tuple([int(component) for component in input('Enter RGB of morse code in the format int,int,int : ').split(',')])
@@ -77,10 +77,10 @@ pixels = [ditdah if char == '.' else space for char in morse]
 
 # inform the user about the pixel requirements of the output image
 print('Pixels required:' , len(pixels))
-width = int(input("width?"))
-height = int(input("height?"))
+width = int(input("Image width: "))
+height = int(input("Image height: "))
 area = width * height
-print('Pixels available:' , area)
+print('Pixels available: ' , area)
 go = input("Proceed? 'y' or 'n'")
 
 # create the image
