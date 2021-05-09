@@ -38,7 +38,7 @@ morse_code = {
     '8': '---..',
     '9': '----.',
     '.': '.-.-.-',
-    ', ': '--..--',
+    ',': '--..--',
     '?': '..--..',
     '/': '-..-.',
     '-': '-....-',
@@ -69,6 +69,8 @@ for key, value in morse_code.items():
 morsecode[' '] = '       '
 
 # convert the input into morse code
+for char in words:
+    print(morsecode.get(char))
 morse = '   '.join([morsecode.get(char) for char in words])
 
 # convert the morse code into pixel colors
