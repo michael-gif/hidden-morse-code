@@ -19,4 +19,4 @@ The `disguised morse.png` is exactly the same, except all of the white pixels ha
 <br><br>
 Use `morse writer.py` to create an image with hidden morse in it.  
 Use `morse reader - verbose.py` to read the hidden morse.  
-Use `morse reader - compact.py` to also read the hidden morse. This python file is simply more compact in terms of the code. So compact in fact, that it only takes up three lines compared to the `verbose` version of the reader.
+Use `morse reader - compact.py` to also read the hidden morse. This python script is simply more compact in terms of the code. So compact in fact, that it only takes up three lines compared to the 57 lines in the `morse reader - verbose` python script.
