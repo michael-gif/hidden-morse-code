@@ -62,7 +62,6 @@ def convert(im):
     morse = ''.join(['.' if pix[x, y] == (0, 0, 0) else ' ' for y in range(im.size[1]) for x in range(im.size[0])])
     # split the morse up into words, removing any whitespace in the process
     morse_words = [word for word in morse.split('       ') if word.strip() != '' ]
-    print(morse_words)
 
     # generate a new dict of morse code, with the dashes replaced with three dots each
     morsecode = {}
