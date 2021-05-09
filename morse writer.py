@@ -1,93 +1,88 @@
 from PIL import Image
 
+morse_code = {
+    'a': '.-',
+    'b': '-...',
+    'c': '-.-.', 
+    'd': '-..',
+    'e': '.',
+    'f': '..-.',
+    'g': '--.',
+    'h': '....',
+    'i': '..',
+    'j': '.---',
+    'k': '-.-',
+    'l': '.-..',
+    'm': '--',
+    'n': '-.',
+    'o': '---',
+    'p': '.--.',
+    'q': '--.-',
+    'r': '.-.',
+    's': '...',
+    't': '-',
+    'u': '..-',
+    'v': '...-',
+    'w': '.--',
+    'x': '-..-',
+    'y': '-.--',
+    'z': '--..',
+    '0': '-----',
+    '1': '.----',
+    '2': '..---',
+    '3': '...--',
+    '4': '....-',
+    '5': '.....',
+    '6': '-....',
+    '7': '--...',
+    '8': '---..',
+    '9': '----.',
+    '.': '.-.-.-',
+    ', ': '--..--',
+    '?': '..--..',
+    '/': '-..-.',
+    '-': '-....-',
+    '=': '-...-',
+    '(': '-.--.',
+    ')': '-.--.-',
+    '\'': '.----.',
+    '_': '..--.-',
+    '&': '.-...',
+    '"': '.-..-.',
+    ';': '-.-.-.',
+    '$': '...-..-',
+    ' ': '       '
+}
+
+# input to encode into morse
 words = input("enter words to encode")
-alphabet = "abcdefghijklmnopqrstuvwxyz .,?:/-='_!;"
 
-ditdah = (0,0,0)
-space = (255,255,255)
+# colors of the pixels
+ditdah = tuple([int(component) for component in input('Enter RGB of morse code in the format int,int,int : ').split(',')])
+space = tuple([int(component) for component in input('Enter RGB of white space in the format int,int,int : ').split(',')])
 
-morsecode = [
-    ". ...",
-    "... . . .",
-    "... . ... .",
-    "... . .",
-    ".",
-    ". . ... .",
-    "... ... .",
-    ". . . .",
-    ". .",
-    ". ... ... ...",
-    "... . ...",
-    ". ... . .",
-    "... ...",
-    "... .",
-    "... ... ...",
-    ". ... ... .",
-    "... ... . ...",
-    ". ... .",
-    ". . .",
-    "...",
-    ". . ...",
-    ". . . ...",
-    ". ... ...",
-    "... . . ...",
-    "... . ... ...",
-    "... ... . .",
-    " ",
-    ". ... . ... . ...",
-    "... ... . . ... ...",
-    ". . ... ... . .",
-    "... ... ... . . .",
-    "... . . ... .",
-    "... . . . . ...",
-    "... . . . ...",
-    ". ... ... ... ... .",
-    ". . ... ... . ...",
-    "... . ... . ... ...",
-    "... . ... . ... ."
-]
-morse = []
+# generate a new dict of morse code, with the dashes replaced with three dots each
+morsecode = {}
+for key, value in morse_code.items():
+    temp = ['... ' if char == '-' else '. ' for char in value]
+    morsecode[key] = ''.join(temp).strip()
 
-for x in range(len(words)):
-    for y in range(38):
-        if words[x] == alphabet[y]:
-            morse.append(morsecode[y])
+# convert the input into morse code
+morse = '   '.join([morsecode.get(char) for char in words])
 
-morse = '   '.join(morse)
-pixels = []
-for x in range(len(morse)):
-    if morse[x] == '.':
-        pixels.append(ditdah)
-    else:
-        pixels.append(space)
+# convert the morse code into pixel colors
+pixels = [ditdah if char == '.' else space for char in morse]
 
-print('Pixel number:' , len(pixels))
+# inform the user about the pixel requirements of the output image
+print('Pixels required:' , len(pixels))
 width = int(input("width?"))
 height = int(input("height?"))
 area = width * height
 print('Pixels available:' , area)
 go = input("Proceed? 'y' or 'n'")
+
+# create the image
 if go == 'y':
-    imagetype = input("Create new image or modify existing image? 'new' or 'existing'")
-    if imagetype == 'new':
-        im = Image.new('RGB',(width,height),color=space)
-        im.putdata(pixels)
-        im.save(input("Filename of new image (include extension):"))
-    elif imagetype == 'existing':
-        filename = input("Filename of existing image (include extension):")
-        im = Image.open(filename)
-        pix = im.load()
-        z = 0
-        rows = len(pixels) // width
-        remaining = rows * width
-        remaining = len(pixels) - remaining
-        for y in range(rows + 1):
-            if y == rows:
-                for x in range(remaining):
-                    pix[x,y] = pixels[z]
-                    z += 1
-            else:
-                for x in range(width):
-                    pix[x,y] = pixels[z]
-                    z += 1
-        im.save(filename)
+    im = Image.new('RGB',(width,height),color=space)
+    im.putdata(pixels)
+    im.save(f'{input("Output image filename (including extension): ")}')
