@@ -34,4 +34,5 @@ More info:
 ## Usage
 Use `morse writer.py` to create an image with hidden morse in it.  
 Use `morse reader - verbose.py` to read the hidden morse.  
-Use `morse reader - compact.py` to also read the hidden morse. This python script is simply more compact in terms of the code, using only 3 lines of code compared to the 57 lines in the `morse reader - verbose.py` python script.
+Use `morse reader - compact.py` to also read the hidden morse. This python script is simply more compact in terms of the code, using only 3 lines of code compared to the 57 lines in the `morse reader - verbose.py` python script.  
+By default, the morse reader scripts will treat the color `(0,0,0)` as the dits and dahs of morse code, so if you want to scan an image with a different color as the dits and dahs, then either change the color of the pixels in the image or change the code to use a different RGB color for the dits and dahs.
