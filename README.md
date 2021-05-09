@@ -18,5 +18,5 @@ Seven white pixels is a space between two words.
 The `disguised morse.png` is exactly the same, except all of the white pixels have had their colour changed to (1,1,1). This disguises all of the black pixels, which hides the morse code. It's almost impossible to differentiate the (0,0,0) pixels from the (1,1,1) pixels.
 <br><br>
 Use `morse writer.py` to create an image with hidden morse in it.  
-Use `morse reader - verbose.py` to read the hidden morse.
+Use `morse reader - verbose.py` to read the hidden morse.  
 Use `morse reader - compact.py` to also read the hidden morse. This python file is simply more compact in terms of the code. So compact in fact, that it only takes up three lines compared to the `verbose` version of the reader.
