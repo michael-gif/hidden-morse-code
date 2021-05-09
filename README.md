@@ -16,7 +16,7 @@ This is a blown up version of `undisguised morse.png`, to make the pixels easier
 
 In the image `easier to see morse.png`:
 - Each black pixel is part of either a dit or a dah.
-- Each white pixel is whitespace between letters or words.
+- Each white pixel is whitespace between the dits and dahs.
 - One black pixel is a dit, three is a dah.
 - One white pixel is a space between the dits and dahs of letters.
 - Three white pixels is a space between two letters.
